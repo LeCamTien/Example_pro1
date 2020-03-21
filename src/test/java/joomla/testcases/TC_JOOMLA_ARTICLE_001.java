@@ -41,6 +41,6 @@ public class TC_JOOMLA_ARTICLE_001 extends TestHelper {
 
         Log.info("6.Verify the article is saved successfully");
         Assert.assertTrue(articlesPage.doesArticleDisplay(title), "Created article should display on the articles table");
-        Assert.assertTrue(articlesPage.doesMessageDisplay("Article saved"), "\"Article successfully saved\" message is displayed");
+        Assert.assertTrue(articlesPage.doesMessageDisplay("Article saved"), "\"Article successfully saved\" message should display");
     }
 }
