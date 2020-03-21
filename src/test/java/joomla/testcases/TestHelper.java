@@ -11,13 +11,14 @@ public class TestHelper {
     @Parameters("browser")
     @BeforeClass
     public void beforeClass(String browser) {
-        Log.info("1.Navigate to Joomla");
+        Log.info("---------- Start test ----------");
+        Log.info("0.Navigate to Joomla");
         BrowserHelper.openBrowser(browser, Constant.URL);
     }
 
     @AfterClass
     public void afterClass() {
-        Constant.DRIVER.quit();
         Log.info("---------- End test ----------");
+//        Constant.DRIVER.quit();
     }
 }
