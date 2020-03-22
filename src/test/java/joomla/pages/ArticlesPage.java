@@ -9,6 +9,11 @@ public class ArticlesPage extends GeneralPage {
     String xpathMessage = "//div[@class='alert-message'][contains(text(),'%s')]";
     String xpathCheckbox = "//table/tbody/tr//a[normalize-space(text())='%s']//ancestor::tr//input[@type='checkbox']";
     String xpathStatusIcon = "//table/tbody/tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
+    String xpathStatusItem = "//div[contains(@id,'filter_published')]//li[text()='%s']";
+
+    private By btnSearchTools = By.cssSelector("button[class$='js-stools-btn-filter']");
+    private By divStatusFilter = By.xpath("//div[contains(@id,'filter_published')]");
+    private By btnClear = By.cssSelector("button[class$='js-stools-btn-clear']");
 
     public void clickButton(String nameButton) {
         String xpathButton = "button[class*='button-%s']";
@@ -20,11 +25,26 @@ public class ArticlesPage extends GeneralPage {
         Constant.DRIVER.findElement(By.cssSelector(String.format(xpathButton, nameButton.toLowerCase()))).click();
     }
 
+    public void clickBtnSearchTools() {
+        Constant.DRIVER.findElement(btnSearchTools).click();
+    }
+
+    public void clickBtnClear() {
+        Constant.DRIVER.findElement(btnClear).click();
+    }
+
     public void selectCheckbox(String article) {
         WebElement checkbox = Constant.DRIVER.findElement(By.xpath(String.format(xpathCheckbox, article)));
         if (!checkbox.isSelected()) {
             checkbox.click();
         }
+    }
+
+    public void selectStatusFilter(String status) throws InterruptedException {
+        Thread.sleep(1000);
+        Constant.DRIVER.findElement(divStatusFilter).click();
+        Thread.sleep(1000);
+        Constant.DRIVER.findElement(By.xpath(String.format(xpathStatusItem,status))).click();
     }
 
     public boolean doesArticleDisplay(String article) {
