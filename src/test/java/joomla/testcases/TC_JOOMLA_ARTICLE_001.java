@@ -4,6 +4,7 @@ import common.Log;
 import common.Utilities;
 import constant.Constant;
 import joomla.pages.ArticlesPage;
+import joomla.pages.HomePage;
 import joomla.pages.LoginPage;
 import joomla.pages.NewArticlePage;
 import org.testng.Assert;
@@ -12,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_001 extends TestHelper {
     LoginPage loginPage = new LoginPage();
+    HomePage homePage = new HomePage();
     ArticlesPage articlesPage = new ArticlesPage();
     NewArticlePage newArticlePage = new NewArticlePage();
 
@@ -28,7 +30,7 @@ public class TC_JOOMLA_ARTICLE_001 extends TestHelper {
     @Test(description = "TC_JOOMLA_ARTICLE_001 - Verify user can create a new article with valid information")
     public void f() {
         Log.info("2.Go to Articles page");
-        articlesPage.goToArticlePage();
+        homePage.goToArticlePage();
 
         Log.info("3.Click on New icon of the top right toolbar");
         articlesPage.clickButton("New");

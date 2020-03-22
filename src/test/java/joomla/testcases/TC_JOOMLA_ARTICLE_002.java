@@ -3,16 +3,14 @@ package joomla.testcases;
 import common.Log;
 import common.Utilities;
 import constant.Constant;
-import joomla.pages.ArticlesPage;
-import joomla.pages.EditArticlePage;
-import joomla.pages.LoginPage;
-import joomla.pages.NewArticlePage;
+import joomla.pages.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
     LoginPage loginPage = new LoginPage();
+    HomePage homePage = new HomePage();
     ArticlesPage articlesPage = new ArticlesPage();
     NewArticlePage newArticlePage = new NewArticlePage();
     EditArticlePage editArticlePage = new EditArticlePage();
@@ -32,7 +30,7 @@ public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
         loginPage.login(Constant.USERNAME, Constant.PASSWORD);
 
         Log.info("2.Go to Articles page");
-        articlesPage.goToArticlePage();
+        homePage.goToArticlePage();
 
         Log.info("3.Click on New icon of the top right toolbar");
         articlesPage.clickButton("New");
@@ -51,7 +49,7 @@ public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
     @Test(description = "TC_JOOMLA_ARTICLE_002 - Verify user can edit an article")
     public void f() {
         Log.info("7.Go to Articles page");
-        articlesPage.goToArticlePage();
+        homePage.goToArticlePage();
 
         Log.info("8.Check on the recently added article's checkbox");
         articlesPage.selectCheckbox(title1);
