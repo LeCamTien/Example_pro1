@@ -10,6 +10,7 @@ public class ArticlesPage extends GeneralPage {
     String xpathCheckbox = "//table/tbody/tr//a[normalize-space(text())='%s']//ancestor::tr//input[@type='checkbox']";
     String xpathStatusIcon = "//table/tbody/tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
     String xpathStatusItem = "//div[contains(@id,'filter_published')]//li[text()='%s']";
+    String xpathCheckoutIcon = "//table/tbody/tr//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-checkedout']";
 
     private By btnSearchTools = By.cssSelector("button[class$='js-stools-btn-filter']");
     private By divStatusFilter = By.xpath("//div[contains(@id,'filter_published')]");
@@ -57,5 +58,9 @@ public class ArticlesPage extends GeneralPage {
 
     public boolean doesStatusIcondisplay(String article, String status) {
         return Constant.DRIVER.findElements(By.xpath(String.format(xpathStatusIcon, article, status.toLowerCase()))).size() == 1;
+    }
+
+    public boolean doesArticleCheckout(String title) {
+        return Constant.DRIVER.findElements(By.xpath(String.format(xpathCheckoutIcon,title))).size() == 1;
     }
 }
