@@ -12,14 +12,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
+    public String title = Utilities.randomTitle();
+    public String category = "Sample Data-Articles";
+    public String content = Utilities.randomContent();
+
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
     ArticlesPage articlesPage = new ArticlesPage();
     NewArticlePage newArticlePage = new NewArticlePage();
-
-    String title = Utilities.randomTitle();
-    String category = "Sample Data-Articles";
-    String content = Utilities.randomContent();
 
     @BeforeMethod
     public void beforeMethod() {
@@ -34,14 +34,14 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
         articlesPage.clickButton("New");
 
         Log.info("4.Fill data into all fields");
-        newArticlePage.fillData(title,"Published",category,content);
+        newArticlePage.fillData(title, "Published", category, content);
 
         Log.info("5.Click on 'Save & Close' icon of the top right toolbar");
         newArticlePage.clickButton("Save & Close");
 
         Log.info("6.Verify the article is saved successfully");
-        Assert.assertTrue(articlesPage.doesMessageDisplay("Article saved"),"'Article save' message should display");
-        Assert.assertTrue(articlesPage.doesArticleDisplay(title),"Created article should display on the articles table");
+        Assert.assertTrue(articlesPage.doesMessageDisplay("Article saved"), "'Article save' message should display");
+        Assert.assertTrue(articlesPage.doesArticleDisplay(title), "Created article should display on the articles table");
     }
 
     @Test(description = "TC_JOOMLA_ARTICLE_004 - Verify that user can unpublish a published article")
@@ -53,7 +53,7 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
         articlesPage.clickButton("Unpublish");
 
         Log.info("9.Verify the article is unpublished successfully");
-        Assert.assertTrue(articlesPage.doesStatusIcondisplay(title,"Unpublish"),"The icon of the selected item is showed as 'Unpublish'.");
-        Assert.assertTrue(articlesPage.doesMessageDisplay("article unpublished"),"The '1 article unpublished' message is displayed");
+        Assert.assertTrue(articlesPage.doesStatusIcondisplay(title, "Unpublish"), "The icon of the selected item is showed as 'Unpublish'.");
+        Assert.assertTrue(articlesPage.doesMessageDisplay("article unpublished"), "The '1 article unpublished' message is displayed");
     }
 }
