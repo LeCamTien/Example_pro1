@@ -48,7 +48,7 @@ public class EditArticlePage extends GeneralPage {
                 nameButton = "Save-New";
                 break;
         }
-        Constant.DRIVER.findElement(By.id(String.format(idButton,nameButton.toLowerCase()))).click();
+        Constant.DRIVER.findElement(By.id(String.format(idButton, nameButton.toLowerCase()))).click();
     }
 
     public void fillData(String title, String status, String category, String content) {

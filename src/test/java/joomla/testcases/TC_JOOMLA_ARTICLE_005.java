@@ -13,14 +13,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_005 extends TestHelper {
+    public String title = Utilities.randomTitle();
+    public String category = "Sample Data-Articles";
+    public String content = Utilities.randomContent();
+
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
     ArticlesPage articlesPage = new ArticlesPage();
     NewArticlePage newArticlePage = new NewArticlePage();
-
-    String title = Utilities.randomTitle();
-    String category = "Sample Data-Articles";
-    String content = Utilities.randomContent();
 
     @BeforeMethod
     public void beforeMethod() {
@@ -35,14 +35,14 @@ public class TC_JOOMLA_ARTICLE_005 extends TestHelper {
         articlesPage.clickButton("New");
 
         Log.info("4.Fill data into all fields");
-        newArticlePage.fillData(title,"",category,content);
+        newArticlePage.fillData(title, "", category, content);
 
         Log.info("5.Click on 'Save & Close' icon of the top right toolbar");
         newArticlePage.clickButton("Save & Close");
 
         Log.info("6.Verify the article is saved successfully");
-        Assert.assertTrue(articlesPage.doesMessageDisplay("Article saved"),"'Article saved' message should display");
-        Assert.assertTrue(articlesPage.doesArticleDisplay(title),"Created article is displayed on the articles table");
+        Assert.assertTrue(articlesPage.doesMessageDisplay("Article saved"), "'Article saved' message should display");
+        Assert.assertTrue(articlesPage.doesArticleDisplay(title), "Created article is displayed on the articles table");
     }
 
     @Test(description = "TC_JOOMLA_ARTICLE_005 - Verify user can move an article to the archive")
@@ -54,14 +54,14 @@ public class TC_JOOMLA_ARTICLE_005 extends TestHelper {
         articlesPage.clickButton("Archive");
 
         Log.info("9.Verify the confirm message is displayed");
-        Assert.assertTrue(articlesPage.doesMessageDisplay("article archived"),"The '1 article archived' message is displayed");
+        Assert.assertTrue(articlesPage.doesMessageDisplay("article archived"), "The '1 article archived' message is displayed");
 
         Log.info("10.Select 'Archived' item of 'Status' dropdown list");
         articlesPage.clickBtnSearchTools();
         articlesPage.selectStatusFilter("Archived");
 
         Log.info("11.Verify the archived article is displayed on the table grid");
-        Assert.assertTrue(articlesPage.doesArticleDisplay(title),"The archived article should display on the table grid");
+        Assert.assertTrue(articlesPage.doesArticleDisplay(title), "The archived article should display on the table grid");
     }
 
     @AfterMethod

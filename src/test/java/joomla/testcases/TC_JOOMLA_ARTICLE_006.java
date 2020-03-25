@@ -14,14 +14,14 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_006 extends TestHelper {
+    public String title = Utilities.randomTitle();
+    public String category = "Sample Data-Articles";
+    public String content = Utilities.randomContent();
+
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
     ArticlesPage articlesPage = new ArticlesPage();
     NewArticlePage newArticlePage = new NewArticlePage();
-
-    String title = Utilities.randomTitle();
-    String category = "Sample Data-Articles";
-    String content = Utilities.randomContent();
 
     @BeforeMethod
     public void beforeMethod() {

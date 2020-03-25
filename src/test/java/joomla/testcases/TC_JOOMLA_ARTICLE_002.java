@@ -9,19 +9,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
+    public String title1 = Utilities.randomTitle();
+    public String category1 = "Sample Data-Articles";
+    public String content1 = Utilities.randomContent();
+    public String title2 = Utilities.randomTitle();
+    public String category2 = "Blog";
+    public String content2 = Utilities.randomContent();
+
     LoginPage loginPage = new LoginPage();
     HomePage homePage = new HomePage();
     ArticlesPage articlesPage = new ArticlesPage();
     NewArticlePage newArticlePage = new NewArticlePage();
     EditArticlePage editArticlePage = new EditArticlePage();
-
-    String title1 = Utilities.randomTitle();
-    String content1 = Utilities.randomContent();
-    String category1 = "Sample Data-Articles";
-
-    String title2 = Utilities.randomTitle();
-    String content2 = Utilities.randomContent();
-    String category2 = "Blog";
 
     @BeforeMethod
     public void beforeMethod() {
@@ -59,10 +58,10 @@ public class TC_JOOMLA_ARTICLE_002 extends TestHelper {
 
         Log.info("10.Fill data into all updated fields");
         Log.info(title2);
-        editArticlePage.fillData(title2,"",category2,content2);
+        editArticlePage.fillData(title2, "", category2, content2);
 
         Log.info("11.Validate new data in all updated fields");
-        editArticlePage.validateData(title2,"",category2,content2);
+        editArticlePage.validateData(title2, "", category2, content2);
 
         Log.info("12.Click on 'Save & Close' icon of the top right toolbar");
         editArticlePage.clickButton("Save & Close");
