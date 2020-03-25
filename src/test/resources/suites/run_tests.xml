@@ -9,7 +9,8 @@
 <!--            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_003" />-->
 <!--            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_004" />-->
 <!--            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_005" />-->
-            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_006" />
+<!--            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_006" />-->
+            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_007" />
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
