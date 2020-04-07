@@ -17,13 +17,13 @@ public class ArticlesPage extends GeneralPage {
     private By btnClear = By.cssSelector("button[class$='js-stools-btn-clear']");
 
     public void clickButton(String nameButton) {
-        String xpathButton = "button[class*='button-%s']";
+        String idButton = "toolbar-%s";
         if (nameButton.equals("Feature")) {
             nameButton = "Featured";
         } else if (nameButton.equals("Unfeature")) {
             nameButton = "Unfeatured";
         }
-        Constant.DRIVER.findElement(By.cssSelector(String.format(xpathButton, nameButton.toLowerCase()))).click();
+        Constant.DRIVER.findElement(By.id(String.format(idButton, nameButton.toLowerCase()))).click();
     }
 
     public void clickBtnSearchTools() {
