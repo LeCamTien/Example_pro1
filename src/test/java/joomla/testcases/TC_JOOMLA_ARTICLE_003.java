@@ -53,7 +53,7 @@ public class TC_JOOMLA_ARTICLE_003 extends TestHelper {
         articlesPage.clickButton("Publish");
 
         Log.info("9.Verify the article is published successfully");
-        Assert.assertTrue(articlesPage.doesStatusIcondisplay(title, "Publish"), "The icon of the selected item should be showed as 'Publish'");
+        Assert.assertTrue(articlesPage.doesStatusIconDisplay(title, "Publish"), "The icon of the selected item should be showed as 'Publish'");
         Assert.assertTrue(articlesPage.doesMessageDisplay("article published"), "The '1 article published' message should display");
     }
 }
