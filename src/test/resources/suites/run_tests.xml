@@ -12,6 +12,7 @@
 <!--            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_006" />-->
 <!--            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_007" />-->
 <!--            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_008" />-->
+<!--            <class name="joomla.testcases.TC_JOOMLA_ARTICLE_009" />-->
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

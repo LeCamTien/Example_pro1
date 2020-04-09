@@ -53,7 +53,7 @@ public class TC_JOOMLA_ARTICLE_004 extends TestHelper {
         articlesPage.clickButton("Unpublish");
 
         Log.info("9.Verify the article is unpublished successfully");
-        Assert.assertTrue(articlesPage.doesStatusIcondisplay(title, "Unpublish"), "The icon of the selected item is showed as 'Unpublish'.");
+        Assert.assertTrue(articlesPage.doesStatusIconDisplay(title, "Unpublish"), "The icon of the selected item is showed as 'Unpublish'.");
         Assert.assertTrue(articlesPage.doesMessageDisplay("article unpublished"), "The '1 article unpublished' message is displayed");
     }
 }

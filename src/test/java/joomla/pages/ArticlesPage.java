@@ -15,6 +15,7 @@ public class ArticlesPage extends GeneralPage {
     private By btnSearchTools = By.cssSelector("button[class$='js-stools-btn-filter']");
     private By divStatusFilter = By.xpath("//div[contains(@id,'filter_published')]");
     private By btnClear = By.cssSelector("button[class$='js-stools-btn-clear']");
+    private By txtSearch = By.id("filter_search");
 
     public void clickButton(String nameButton) {
         String idButton = "toolbar-%s";
@@ -56,11 +57,19 @@ public class ArticlesPage extends GeneralPage {
         return Constant.DRIVER.findElements(By.xpath(String.format(xpathMessage, message))).size() == 1;
     }
 
-    public boolean doesStatusIcondisplay(String article, String status) {
+    public boolean doesStatusIconDisplay(String article, String status) {
         return Constant.DRIVER.findElements(By.xpath(String.format(xpathStatusIcon, article, status.toLowerCase()))).size() == 1;
     }
 
     public boolean doesArticleCheckout(String title) {
         return Constant.DRIVER.findElements(By.xpath(String.format(xpathCheckoutIcon,title))).size() == 1;
+    }
+
+    public void fillSearchFilter(String title) {
+        Constant.DRIVER.findElement(txtSearch).sendKeys(title);
+    }
+
+    public boolean doSearchResultsDisplay(String title) {
+        return Constant.DRIVER.findElements(By.xpath(String.format(xpathArticle, title))).size() >= 1;
     }
 }
